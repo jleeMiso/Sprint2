@@ -64,7 +64,6 @@ public class CheckPaymentTypeController : MonoBehaviour
         }
 
         AmountReceivedText.text = "";
-        print(ordersCollection.orders[1].Total);
         TotalPrice.text = Convert.ToString(change);
     }
 }
