@@ -30,7 +30,7 @@ public class OrderController : MonoBehaviour
             //print(json);
             ordersCollection = JsonUtility.FromJson<OrdersCollection>(json);
 
-            allOrdersFromTable = ordersCollection.filterOrders("T2");
+            allOrdersFromTable = ordersCollection.filterOrders("T1");
         }
     }
 
