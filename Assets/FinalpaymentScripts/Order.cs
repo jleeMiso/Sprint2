@@ -7,6 +7,7 @@ public class Order
     public string OrderID;
     public string WaiterID;
     public string[] OrderedItems;
+    public string[] Quantity;
     public string Total;
     public string Paid;
 }

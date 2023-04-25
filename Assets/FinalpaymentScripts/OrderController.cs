@@ -15,6 +15,9 @@ public class OrderController : MonoBehaviour
     [SerializeField]
     public Text ItemsText;
 
+    [SerializeField]
+    public Text totalPrice;
+
     private OrdersCollection ordersCollection;
 
     private List<Order> allOrdersFromTable;
@@ -27,21 +30,28 @@ public class OrderController : MonoBehaviour
             //print(json);
             ordersCollection = JsonUtility.FromJson<OrdersCollection>(json);
 
-            allOrdersFromTable = ordersCollection.filterOrders("T1");
+            allOrdersFromTable = ordersCollection.filterOrders("T2");
         }
-
-        //print(allOrdersFromTable[0].TableID + " table id");
-
-        //foreach (Order o in allOrdersFromTable)
-        //{
-        //    print(o.OrderedItems + " ordered items");
-        //    print(o.Total + " total");
-        //}
     }
 
     void Update()
     {
+        decimal total = 0.00M;
+        string items = "";
+
+        allOrdersFromTable.ForEach(o =>
+        {
+            int i = 0;
+            decimal t = decimal.Parse(o.Total);
+            total += t;
+            foreach (string item in o.OrderedItems)
+            {
+                items += item + "   " + o.Quantity[i] + "\n";
+                i++;
+            }
+        });
         TableIdText.text = allOrdersFromTable[0].TableID;
-        Console.WriteLine(allOrdersFromTable.ToString());
+        totalPrice.text = Convert.ToString(total);
+        ItemsText.text = items;
     }
 }
