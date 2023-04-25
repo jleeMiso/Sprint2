@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CheckPaymentTypeController : MonoBehaviour
 {
@@ -65,5 +66,10 @@ public class CheckPaymentTypeController : MonoBehaviour
 
         AmountReceivedText.text = "";
         TotalPrice.text = Convert.ToString(change);
+    }
+
+    public void onClickCancelPayment()
+    {
+        SceneManager.LoadScene("OrderScreen");
     }
 }

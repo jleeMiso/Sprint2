@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FinalPayment.unity
     guid: 98a6998180f2b4bfe972fb7d481b30aa
+  - enabled: 1
+    path: Assets/Scenes/OrderScreen.unity
+    guid: 99b7f293c5ee045df9d78bde210f619d
   m_configObjects: {}
