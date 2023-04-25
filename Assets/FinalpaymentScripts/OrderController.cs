@@ -1,0 +1,57 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using UnityEngine;
+using Newtonsoft.Json;
+using UnityEngine.UI;
+
+[Serializable]
+public class OrderController : MonoBehaviour
+{
+    [SerializeField]
+    public Text TableIdText;
+
+    [SerializeField]
+    public Text ItemsText;
+
+    [SerializeField]
+    public Text totalPrice;
+
+    private OrdersCollection ordersCollection;
+
+    private List<Order> allOrdersFromTable;
+
+    public OrderController()
+    {
+        using (StreamReader stream = new StreamReader("Assets/Orders.json"))
+        {
+            string json = stream.ReadToEnd();
+            //print(json);
+            ordersCollection = JsonUtility.FromJson<OrdersCollection>(json);
+
+            allOrdersFromTable = ordersCollection.filterOrders("T2");
+        }
+    }
+
+    void Update()
+    {
+        decimal total = 0.00M;
+        string items = "";
+
+        allOrdersFromTable.ForEach(o =>
+        {
+            int i = 0;
+            decimal t = decimal.Parse(o.Total);
+            total += t;
+            foreach (string item in o.OrderedItems)
+            {
+                items += item + "   " + o.Quantity[i] + "\n";
+                i++;
+            }
+        });
+        TableIdText.text = allOrdersFromTable[0].TableID;
+        totalPrice.text = Convert.ToString(total);
+        ItemsText.text = items;
+    }
+}
