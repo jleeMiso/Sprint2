@@ -22,14 +22,4 @@ public class OrdersCollection
         }
         return filteredOrders;
     }
-
-    //public override string ToString()
-    //{
-    //    string result = "";
-    //    foreach (Order order in filteredOrders)
-    //    {
-    //        result += string.Format(order.TableID + " " + order.OrderID);
-    //    }
-    //    return result;
-    //}
 }

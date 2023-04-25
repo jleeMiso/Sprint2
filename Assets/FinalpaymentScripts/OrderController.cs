@@ -27,10 +27,10 @@ public class OrderController : MonoBehaviour
         using (StreamReader stream = new StreamReader("Assets/Orders.json"))
         {
             string json = stream.ReadToEnd();
-            //print(json);
+
             ordersCollection = JsonUtility.FromJson<OrdersCollection>(json);
 
-            allOrdersFromTable = ordersCollection.filterOrders("T1");
+            allOrdersFromTable = ordersCollection.filterOrders("T2");
         }
     }
 
@@ -38,7 +38,6 @@ public class OrderController : MonoBehaviour
     {
         decimal total = 0.00M;
         string items = "";
-
         allOrdersFromTable.ForEach(o =>
         {
             int i = 0;

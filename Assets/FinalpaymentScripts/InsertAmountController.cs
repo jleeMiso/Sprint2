@@ -20,9 +20,4 @@ public class InsertAmountController : MonoBehaviour
             AmountReceivedText.text = AmountReceivedText.text.TrimEnd(AmountReceivedText.text[AmountReceivedText.text.Length - 1]);
         }
     }
-
-    public void OnClickPay()
-    {
-        AmountReceivedText.text = "";
-    }
 }
