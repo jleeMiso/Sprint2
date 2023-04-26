@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using Newtonsoft.Json;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [Serializable]
@@ -30,7 +30,7 @@ public class OrderController : MonoBehaviour
 
             ordersCollection = JsonUtility.FromJson<OrdersCollection>(json);
 
-            allOrdersFromTable = ordersCollection.filterOrders("T2");
+            allOrdersFromTable = ordersCollection.filterOrders(TableOnClick.selectedTable.tableId);
         }
     }
 
@@ -38,19 +38,32 @@ public class OrderController : MonoBehaviour
     {
         decimal total = 0.00M;
         string items = "";
-        allOrdersFromTable.ForEach(o =>
+        if (allOrdersFromTable.Count > 0)
         {
-            int i = 0;
-            decimal t = decimal.Parse(o.Total);
-            total += t;
-            foreach (string item in o.OrderedItems)
+            allOrdersFromTable.ForEach(o =>
             {
-                items += item + "   " + o.Quantity[i] + "\n";
-                i++;
-            }
-        });
-        TableIdText.text = allOrdersFromTable[0].TableID;
-        totalPrice.text = Convert.ToString(total);
-        ItemsText.text = items;
+                int i = 0;
+                decimal t = decimal.Parse(o.Total);
+                total += t;
+                foreach (string item in o.OrderedItems)
+                {
+                    items += item + "   " + o.Quantity[i] + "\n";
+                    i++;
+                }
+            });
+            TableIdText.text = TableOnClick.selectedTable.tableId;
+            totalPrice.text = Convert.ToString(total);
+            ItemsText.text = items;
+        }
+    }
+
+    public void returnHome()
+    {
+        SceneManager.LoadScene("TableScene");
+    }
+
+    public void returnTable()
+    {
+        SceneManager.LoadScene("OrderScreen");
     }
 }

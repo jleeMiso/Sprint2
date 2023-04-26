@@ -15,7 +15,7 @@ public class OrdersCollection
 
         foreach(Order order in orders)
         {
-            if (order.TableID.Equals(tableID))
+            if (order.TableID.Equals(tableID) && order.Paid.Equals("false"))
             {
                 filteredOrders.Add(order);
             }

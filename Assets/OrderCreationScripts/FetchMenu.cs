@@ -39,6 +39,11 @@ public class FetchMenu : MonoBehaviour
     [SerializeField]
     public Text PendingOrderSummaryText;
 
+    [SerializeField]
+    public Text TableId;
+
+    private TableCollection tableCollection;
+
     private MenuCollection menuCollection;
 
     private List<Menu> menu;
@@ -61,6 +66,15 @@ public class FetchMenu : MonoBehaviour
     //public RectTransform ParentPanel;
 
     //public GameObject prefabButton;
+
+    public static UserLogin userlogin = new UserLogin();
+
+    SignedInWaiter signedInWaiter = userlogin.getUserData();
+
+    public void Start()
+    {
+        TableId.text = TableOnClick.selectedTable.tableId;
+    }
 
     public void FetchMenuByCatgory(string category)
     {
@@ -140,20 +154,7 @@ public class FetchMenu : MonoBehaviour
             pendingOrderCollection.AddItem(pendingOrder.Item, pendingOrder.Quantity);
             quantity = 1;
             FoodQuantity.text = "1";
-
-            //GameObject btn = (GameObject)Instantiate(prefabButton);
-            //btn.transform.SetParent(ParentPanel, false);
-            //btn.transform.localPosition = new Vector3(155, y, 0);
-            //btn.transform.localScale = new Vector3(1, 1, 1);
-            //btn.GetComponentInChildren<Text>().text = pendingOrder.Item + "     " + pendingOrder.Quantity;
         }
-
-        //y -= 60;
-    }
-
-    public void onSelectItemToDelete(string toggleID)
-    {
-        print(toggleID);
     }
 
     public void OnCloseItemDetail()
@@ -180,9 +181,8 @@ public class FetchMenu : MonoBehaviour
 
     public void OnClickCompleteOrder()
     {
-        string TableID = "T4";
-        //string OrderID = "";
-        string WaiterID = "";
+        string TableID = TableOnClick.selectedTable.tableId;
+        string WaiterID = signedInWaiter.username;
         string[] OrderedItems = pendingOrderCollection.ItemsCollection.ToArray();
         string[] Quantity = pendingOrderCollection.QuantityCollection.ToArray();
         string Total = "";
@@ -203,7 +203,22 @@ public class FetchMenu : MonoBehaviour
 
         Total = totalPrice.ToString();
 
-        //Order newOrder = new Order(TableID, OrderID, WaiterID, OrderedItems, Quantity, Total, Paid);
+        using (StreamReader stream = new StreamReader("Assets/Resources/table.json"))
+        {
+            string json = stream.ReadToEnd();
+
+            tableCollection = JsonUtility.FromJson<TableCollection>(json);
+        }
+
+        for (int i = 0; i < tableCollection.tables.Length; i++)
+        {
+            if (tableCollection.tables[i].tableId.Equals(TableID))
+            {
+                tableCollection.tables[i].status = "occupied";
+            }
+        }
+
+        File.WriteAllText("Assets/Resources/table.json", JsonUtility.ToJson(tableCollection));
 
         using (StreamReader stream = new StreamReader("Assets/Orders.json"))
         {
@@ -231,5 +246,10 @@ public class FetchMenu : MonoBehaviour
     public void onClickPayment()
     {
         SceneManager.LoadScene("FinalPayment");
+    }
+
+    public void returnHome()
+    {
+        SceneManager.LoadScene("TableScene");
     }
 }

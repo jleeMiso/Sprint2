@@ -15,6 +15,7 @@ public class Order
     {
         TableID = ti;
         OrderID = oi;
+        WaiterID = wi;
         OrderedItems = orderedItems;
         Quantity = qty;
         Total = total;

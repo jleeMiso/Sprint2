@@ -1,0 +1,22 @@
+{
+    "waiters": [
+        {
+            "username": "jason",
+            "password": "1234",
+            "firstName": "Jason",
+            "lastName":  "Lee"
+        },
+        {
+            "username": "zeshan",
+            "password": "1234",
+            "firstName": "Zeshan",
+            "lastName": "Khan"
+        },
+        {
+            "username": "richard",
+            "password": "1234",
+            "firstName": "Richard",
+            "lastName": "Jennings"
+        }
+    ]
+}
