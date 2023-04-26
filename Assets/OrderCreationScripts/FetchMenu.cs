@@ -53,8 +53,14 @@ public class FetchMenu : MonoBehaviour
 
     private OrdersCollection ordersCollection;
 
-    //private List<string> pendingItemDescArray = new List<string>();
-    //private List<string> pendingItemQtyArray = new List<string>();
+    //public int y = -40;
+
+    //public int toggleIndex = 1;
+
+    //[SerializeField]
+    //public RectTransform ParentPanel;
+
+    //public GameObject prefabButton;
 
     public void FetchMenuByCatgory(string category)
     {
@@ -134,7 +140,20 @@ public class FetchMenu : MonoBehaviour
             pendingOrderCollection.AddItem(pendingOrder.Item, pendingOrder.Quantity);
             quantity = 1;
             FoodQuantity.text = "1";
+
+            //GameObject btn = (GameObject)Instantiate(prefabButton);
+            //btn.transform.SetParent(ParentPanel, false);
+            //btn.transform.localPosition = new Vector3(155, y, 0);
+            //btn.transform.localScale = new Vector3(1, 1, 1);
+            //btn.GetComponentInChildren<Text>().text = pendingOrder.Item + "     " + pendingOrder.Quantity;
         }
+
+        //y -= 60;
+    }
+
+    public void onSelectItemToDelete(string toggleID)
+    {
+        print(toggleID);
     }
 
     public void OnCloseItemDetail()
@@ -205,6 +224,8 @@ public class FetchMenu : MonoBehaviour
         File.WriteAllText("Assets/Orders.json", JsonUtility.ToJson(ordersCollection));
 
         PendingOrderSummaryText.text = "";
+        pendingOrderCollection.ItemsCollection.Clear();
+        pendingOrderCollection.QuantityCollection.Clear();
     }
 
     public void onClickPayment()
