@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OrderScreen.unity
     guid: 99b7f293c5ee045df9d78bde210f619d
+  - enabled: 1
+    path: Assets/Scenes/LoginScene.unity
+    guid: 575ca23c47c634f29a3cb1fe910c10db
+  - enabled: 1
+    path: Assets/Scenes/TableScene.unity
+    guid: 065de914d8cca4da7af210cce6752aa2
   m_configObjects: {}

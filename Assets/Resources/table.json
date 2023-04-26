@@ -1,0 +1,124 @@
+{
+    "tables": [
+        {
+            "tableId": "T1",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T2",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T3",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T4",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T5",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T6",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T7",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T8",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T9",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T10",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T11",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T12",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T13",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T14",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T15",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T16",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T17",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T18",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T19",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T20",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T21",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T22",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T23",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T24",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T25",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T26",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T27",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T28",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T29",
+            "status": "vacant"
+        },
+        {
+            "tableId": "T30",
+            "status": "vacant"
+        }
+    ]
+}

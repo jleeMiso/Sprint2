@@ -3,51 +3,39 @@
         {
             "TableID": "T1",
             "OrderID": "1",
-            "WaiterID": "1000",
+            "WaiterID": "Jason Lee",
             "OrderedItems": [
                 "Buffalo Blue Chips",
                 "Chicken Nachos",
                 "Pork Nachos"
             ],
-            "Quantity": [
-                "1",
-                "1",
-                "1"
-            ],
+            "Quantity": [ 1, 1, 1 ],
             "Total": "23.00",
             "Paid": "false"
         },
         {
             "TableID": "T2",
             "OrderID": "2",
-            "WaiterID": "1001",
+            "WaiterID": "Jason Lee",
             "OrderedItems": [
                 "Catfish Bites",
                 "Fried Veggies",
                 "Fried Cheese"
             ],
-            "Quantity": [
-                "1",
-                "1",
-                "1"
-            ],
+            "Quantity": [ 1, 1, 1 ],
             "Total": "20.50",
             "Paid": "false"
         },
         {
             "TableID": "T3",
             "OrderID": "3",
-            "WaiterID": "1002",
+            "WaiterID": "Jason Lee",
             "OrderedItems": [
                 "Cheesestick Trio",
                 "Chicken Quesadilla",
                 "Cast Iron Skillet Meatballs"
             ],
-            "Quantity": [
-                "1",
-                "1",
-                "1"
-            ],
+            "Quantity": [ 1, 1, 1 ],
             "Total": "33.50",
             "Paid": "false"
         }
